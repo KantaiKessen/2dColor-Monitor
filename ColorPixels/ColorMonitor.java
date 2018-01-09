@@ -18,12 +18,12 @@ public class ColorMonitor
 
    public void setPixel(int r, int c, Pixel p)
    {
-       
+       monitor[r][c] = p;
    }
 
    public Pixel getPixel(int r, int c)
    {
-       return new Pixel(0, 0, 0);  // you need to change this
+       return monitor[r][c];  // you need to change this
    }
 
   /**
@@ -31,7 +31,13 @@ public class ColorMonitor
    */
    public int numMostlyRed()
    {
-       return -1;    //  so it compiles
+       for(Pixel[] x : monitor)
+       {
+           for(Pixel i : x)
+           {
+               
+           }
+       }    //  so it compiles
    }
 
   /**

@@ -20,9 +20,9 @@ public class Pixel
         blue = b;
     }
 
-    public int getRed() { return -1; }
-    public int getGreen() { return -4; }
-    public int getBlue() { return -1; }
+    public int getRed() { return red; }
+    public int getGreen() { return green; }
+    public int getBlue() { return blue; }
 
     public void setRed(int r) {  /*  add code  */; }
     public void setGreen(int g) {  /*  add code  */; }
@@ -39,7 +39,11 @@ public class Pixel
      */
     public boolean mostlyRed()
     {
-        /*  add code here  */
-        return Math.random() > 0.5;    // so it compliles
+        int numTrue = 0;
+        if(red > green) {numTrue++;}
+        if(red > blue) {numTrue++;}
+        if(red >= 150) {numTrue++;}
+        if(red > green + blue) {numTrue++;}
+        return numTrue > 2;    // so it compliles
     }
 }

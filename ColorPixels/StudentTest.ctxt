@@ -1,8 +1,14 @@
 #BlueJ class context
-comment0.params=
-comment0.target=void\ testPixelIsMostlyRed01()
+comment0.target=StudentTest
+comment0.text=\r\n\ The\ test\ class\ studentTest.\r\n\r\n\ @author\ \ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
-comment1.target=void\ testColorMonitorNumMostlyRed01()
+comment1.target=void\ testPixelIsMostlyRed01()
 comment2.params=
-comment2.target=void\ testIsBrightSpot01()
-numComments=3
+comment2.target=void\ testColorMonitorNumMostlyRed01()
+comment3.params=
+comment3.target=void\ testColorMonitorGetPixel01()
+comment4.params=
+comment4.target=void\ testColorMonitorDarken01()
+comment5.params=
+comment5.target=void\ testIsBrightSpot01()
+numComments=6
