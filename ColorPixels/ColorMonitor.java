@@ -31,13 +31,16 @@ public class ColorMonitor
    */
    public int numMostlyRed()
    {
+       int numRed = 0;
        for(Pixel[] x : monitor)
        {
            for(Pixel i : x)
            {
-               
-           }
-       }    //  so it compiles
+               if(i.mostlyRed())
+               {numRed++;}
+            }
+       }
+       return numRed;
    }
 
   /**
@@ -49,7 +52,7 @@ public class ColorMonitor
    */
    public void darken(int someValue)
    {
-//    add code here
+        
    }
 
   /**
