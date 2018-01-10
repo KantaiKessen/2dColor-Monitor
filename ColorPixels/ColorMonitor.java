@@ -29,30 +29,21 @@ public class ColorMonitor
   /**
    * counts the number of mostly red Pixels
    */
-   public int numMostlyRed(){
-   int numMostRed = 0;
+   public int numMostlyRed()
    {
-       int numRed = 0;
-       for(Pixel[] x : monitor)
-       {
-           for(Pixel i : x)
-           {
-               if(i.mostlyRed())
-<<<<<<< HEAD
-               {numRed++;}
+        int numMostRed = 0;
+        for(Pixel[] x : monitor)
+        {
+            for(Pixel i : x)
+            {
+                if(i.mostlyRed())
+                {
+                    numMostRed++;
+                }
             }
        }
-       return numRed;
-=======
-               {
-                   numMostRed++;
-               }
-           }
-       }
        return numMostRed;
->>>>>>> 526e7712dd5a2680736a565f5d563ed9f3cf8f51
    }
-}
 
   /**
    * darkens the monitor according to the following algorithm
@@ -63,9 +54,6 @@ public class ColorMonitor
    */
    public void darken(int someValue)
    {
-<<<<<<< HEAD
-        
-=======
         for(Pixel[] x : monitor)
         {
             for(Pixel i : x)
@@ -76,7 +64,6 @@ public class ColorMonitor
                 if(i.getBlue() > 255){i.setBlue(255);}
             }
         }
->>>>>>> 526e7712dd5a2680736a565f5d563ed9f3cf8f51
    }
 
   /**
@@ -95,6 +82,47 @@ public class ColorMonitor
         {
             return false;
         }
-        return Math.random() > 0.5;    // so it compliles
+        return redBright(r, c) && greenBright(r, c) && blueBright(r, c);    // so it compliles
+   }
+
+   public boolean redBright(int r, int c)
+   {
+       int northWest = monitor[r - 1][c - 1].getRed();
+       int north = monitor[r - 1][c].getRed();
+       int northEast = monitor[r - 1][c + 1].getRed();
+       int west = monitor[r][c - 1].getRed();
+       int east = monitor[r][c + 1].getRed();
+       int southWest = monitor[r+1][c-1].getRed();
+       int south = monitor[r+1][c].getRed();
+       int southEast = monitor[r+1][c+1].getRed();
+       int pixel = monitor[r][c].getRed();
+       return pixel > northWest && pixel > north && pixel > northEast && pixel > west && pixel > east && pixel > southWest && pixel > south && pixel > southEast;
+   }
+   public boolean greenBright(int r, int c)
+   {
+       int northWest = monitor[r - 1][c - 1].getGreen();
+       int north = monitor[r - 1][c].getGreen();
+       int northEast = monitor[r - 1][c + 1].getGreen();
+       int west = monitor[r][c - 1].getGreen();
+       int east = monitor[r][c + 1].getGreen();
+       int southWest = monitor[r+1][c-1].getGreen();
+       int south = monitor[r+1][c].getGreen();
+       int southEast = monitor[r+1][c+1].getGreen();
+       int pixel = monitor[r][c].getGreen();
+       return pixel > northWest && pixel > north && pixel > northEast && pixel > west && pixel > east && pixel > southWest && pixel > south && pixel > southEast;
+   }
+
+   public boolean blueBright(int r, int c)
+   {
+       int northWest = monitor[r - 1][c - 1].getBlue();
+       int north = monitor[r - 1][c].getBlue();
+       int northEast = monitor[r - 1][c + 1].getBlue();
+       int west = monitor[r][c - 1].getBlue();
+       int east = monitor[r][c + 1].getBlue();
+       int southWest = monitor[r+1][c-1].getBlue();
+       int south = monitor[r+1][c].getBlue();
+       int southEast = monitor[r+1][c+1].getBlue();
+       int pixel = monitor[r][c].getBlue();
+       return pixel > northWest && pixel > north && pixel > northEast && pixel > west && pixel > east && pixel > southWest && pixel > south && pixel > southEast;
    }
 }
