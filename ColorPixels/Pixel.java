@@ -24,9 +24,9 @@ public class Pixel
     public int getGreen() { return green; }
     public int getBlue() { return blue; }
 
-    public void setRed(int r) {  /*  add code  */; }
-    public void setGreen(int g) {  /*  add code  */; }
-    public void setBlue(int b) {  /*  add code  */; }
+    public void setRed(int r) {  red = r; }
+    public void setGreen(int g) {  green = g; }
+    public void setBlue(int b) {  blue = b; }
 
     /**
      *   Write the method mostlyRed

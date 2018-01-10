@@ -12,9 +12,9 @@ public class ColorMonitor
        monitor = new Pixel[r][c];
    }
 
-   public int getNumRows() { return -1; }
+   public int getNumRows() { return monitor.length; }
 
-   public int getNumCols() { return -1; }
+   public int getNumCols() { return monitor[0].length; }
 
    public void setPixel(int r, int c, Pixel p)
    {
@@ -29,7 +29,8 @@ public class ColorMonitor
   /**
    * counts the number of mostly red Pixels
    */
-   public int numMostlyRed()
+   public int numMostlyRed(){
+   int numMostRed = 0;
    {
        int numRed = 0;
        for(Pixel[] x : monitor)
@@ -37,11 +38,21 @@ public class ColorMonitor
            for(Pixel i : x)
            {
                if(i.mostlyRed())
+<<<<<<< HEAD
                {numRed++;}
             }
        }
        return numRed;
+=======
+               {
+                   numMostRed++;
+               }
+           }
+       }
+       return numMostRed;
+>>>>>>> 526e7712dd5a2680736a565f5d563ed9f3cf8f51
    }
+}
 
   /**
    * darkens the monitor according to the following algorithm
@@ -52,7 +63,20 @@ public class ColorMonitor
    */
    public void darken(int someValue)
    {
+<<<<<<< HEAD
         
+=======
+        for(Pixel[] x : monitor)
+        {
+            for(Pixel i : x)
+            {
+                i.setGreen(i.getGreen() + someValue/2);
+                i.setBlue(i.getBlue() + someValue);
+                if(i.getGreen() > 255){i.setGreen(255);}
+                if(i.getBlue() > 255){i.setBlue(255);}
+            }
+        }
+>>>>>>> 526e7712dd5a2680736a565f5d563ed9f3cf8f51
    }
 
   /**
@@ -67,7 +91,10 @@ public class ColorMonitor
    */
    public boolean isBrightSpot(int r, int c)
    {
-//    add code here
-       return Math.random() > 0.5;    // so it compliles
+        if(r == 0 || c == 0 || r == monitor.length - 1 || c == monitor[0].length - 1)
+        {
+            return false;
+        }
+        return Math.random() > 0.5;    // so it compliles
    }
 }
